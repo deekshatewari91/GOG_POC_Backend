@@ -1,0 +1,1 @@
+insert into login(id,password,user,username) values(1,'admin','Admin','admin');
