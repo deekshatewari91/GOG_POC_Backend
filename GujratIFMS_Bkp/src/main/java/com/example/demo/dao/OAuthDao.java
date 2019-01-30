@@ -10,8 +10,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.entity.Login;
 import com.example.demo.model.UserEntity;
-import com.example.demo.service.Login;
+import com.example.demo.repo.LoginRepository;
 
 import ch.qos.logback.classic.Logger;
 
@@ -24,7 +25,7 @@ public class OAuthDao {
 	private static final String ROLE_USER = "ROLE_USER";
 
 	@Autowired
-	private LoginRepo logrepos;
+	private LoginRepository loginRepository;
 
 	/**
 	 * @param username
@@ -32,13 +33,13 @@ public class OAuthDao {
 	 */
 	public UserEntity getUserDetails(String username) {
 
-		logger.info("inside OAuthDao->getUserDetails()");
+		logger.info("Get user : "+username );
 
 		UserEntity user = new UserEntity();
 		List<UserEntity> list = new ArrayList<>();
 		Collection<GrantedAuthority> grantedAuthoritiesList = new ArrayList<>();
 		try {
-			List<Login> logList = (List<Login>) logrepos.findAll();
+			List<Login> logList = (List<Login>) loginRepository.findAll();
 			for (Login l : logList) {
 				if (username.equals(l.getUsername())) {
 					user.setUsername(username);
@@ -61,7 +62,6 @@ public class OAuthDao {
 			}
 		} catch (Exception e) {
 			logger.error("exception in OAuthDao->getUserDetails()", e);
-
 		}
 
 		return null;

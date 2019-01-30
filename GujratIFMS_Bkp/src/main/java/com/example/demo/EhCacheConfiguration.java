@@ -10,6 +10,8 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 public class EhCacheConfiguration {
 	
+	private static final String EHCACHE_FILE="ehcache.xml";
+	
 	  @Bean 
 	  public CacheManager cacheManager() {
 		return new EhCacheCacheManager(cacheManagerFactory().getObject());
@@ -18,7 +20,7 @@ public class EhCacheConfiguration {
 	  @Bean 
 	  public EhCacheManagerFactoryBean cacheManagerFactory() {
 	  EhCacheManagerFactoryBean factory=new EhCacheManagerFactoryBean(); 
-	  factory.setConfigLocation(new ClassPathResource("ehcache.xml"));
+	  factory.setConfigLocation(new ClassPathResource(EHCACHE_FILE));
 	  factory.setShared(true); 
 	  return factory;
 	  

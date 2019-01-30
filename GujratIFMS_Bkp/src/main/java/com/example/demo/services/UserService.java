@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.services;
 
 
 import java.util.HashMap;
@@ -6,18 +6,18 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entity.User;
 import com.example.demo.exception.GOGException;
 
-//import com.main.IFMS.service.User;
 
 @Service("userService")
-public interface MainService 
+public interface UserService 
 {
-	String create(User user) throws GOGException;
+	void create(User user) throws GOGException;
 	
 	HashMap<String, String> login(String login);
 	
-	void updateStatus(List<User> users);
+	void updateStatus(List<User> users) throws GOGException;
 	
 	User findUser(int uid);
 	
@@ -25,12 +25,9 @@ public interface MainService
 
 	String deleteUser(int id);
     
-    List<User> findAll();
+    List<User> findAll() throws GOGException;
 	
     List<User> findUserbyStatus(boolean stat);    
     
-    void addEmployee(Employee emp,List<Address> addr);
-    
-    Employee findEmpById(int eid);
 
 }

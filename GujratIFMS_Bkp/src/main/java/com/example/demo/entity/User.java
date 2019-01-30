@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -42,7 +42,7 @@ public class User {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="address_aid")
-	private AddressJson address;
+	private Address address;
 
 	public String getFirstname() {
 		return firstname;
@@ -108,11 +108,11 @@ public class User {
 		this.designation = designation;
 	}
 
-	public AddressJson getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(AddressJson address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 

@@ -1,12 +1,14 @@
-package com.example.demo.service;
+package com.example.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class AddressJson {
+@Table(name="address_json")
+public class Address {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -51,7 +53,6 @@ public class AddressJson {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
 
 	@Override
 	public String toString() {

@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.entity;
 
 import java.io.Serializable;
 
@@ -7,15 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Cities implements Serializable{
+public class Countries implements Serializable {
 	
 	@Id
 	private int id;
 	
-	@Column(name="country_id")
-	private int cid;
-	
-	@Column(name="city_name")
+	@Column(name="country_name")
 	private String cname;
 
 	public int getId() {
@@ -24,15 +21,6 @@ public class Cities implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-
-	public int getCid() {
-		return cid;
-	}
-
-	public void setCid(int cid) {
-		this.cid = cid;
 	}
 
 	public String getCname() {
@@ -45,9 +33,8 @@ public class Cities implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Cities [id=" + id + ", sid=" + cid + ", cname=" + cname + "]";
+		return "Countries [id=" + id + ", cname=" + cname + "]";
 	}
-
 	
 	
 }

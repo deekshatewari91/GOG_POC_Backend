@@ -2,6 +2,10 @@ package com.example.demo.exception;
 
 public class GOGException extends RuntimeException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	ApplicationError error;
 	
 	public GOGException() {		

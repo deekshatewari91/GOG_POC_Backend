@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.Date;
+
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -12,6 +15,10 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import com.example.demo.controller.MainController;
+
+import ch.qos.logback.classic.Logger;
+
 
 @SpringBootApplication
 @EnableCaching
@@ -20,13 +27,13 @@ import org.springframework.web.filter.CorsFilter;
 public class FirstProjApplication 
 {
 
+	private static Logger logger=(ch.qos.logback.classic.Logger) LoggerFactory.getLogger(FirstProjApplication.class);
 
     public static void main(String[] args)
     {
     	SpringApplication.run(FirstProjApplication.class, args);
-    	
-    	System.out.println("***************** in FirstProjApplication main...");
-    	    	
+    	logger.info("Application started "+new Date());
+    	 	    	
     }
     
     @SuppressWarnings("rawtypes")

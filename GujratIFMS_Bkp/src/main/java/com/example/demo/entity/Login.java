@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,16 +11,20 @@ public class Login {
     @GeneratedValue(strategy=GenerationType.AUTO)
 	
 	private int id;
-	private String Username;
-	private String Password;
+	
+	private String username;
+	
+	private String password;
+	
 	private String user;
-	private String Role;
+	
+	private String role;
 	
 	public String getRole() {
-		return Role;
+		return role;
 	}
 	public void setRole(String role) {
-		Role = role;
+		this.role = role;
 	}
 	public int getId() {
 		return id;
@@ -29,18 +33,17 @@ public class Login {
 		this.id = id;
 	}
 	
-
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getUser() {
 		return user;

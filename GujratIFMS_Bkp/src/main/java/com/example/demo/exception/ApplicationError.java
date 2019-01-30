@@ -1,35 +1,48 @@
 package com.example.demo.exception;
 
+import java.util.Date;
+
+import org.springframework.http.HttpStatus;
+
 public class ApplicationError {
-	private String code;
-	private String message;
+	private HttpStatus httpCode;
+	private Date timestamp;
+	private String description;
 	private String severity;
 
 	public ApplicationError() {
 	}
 
-	public ApplicationError(String code, String message, String severity) {
-		this.code = code;
-		this.message = message;
+	public ApplicationError(HttpStatus httpCode, Date timestamp, String description, String severity) {
+		this.httpCode = httpCode;
+		this.timestamp = timestamp;
+		this.description = description;
 		this.severity = severity;
-	
 	}
 
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
 
 	public String getMessage() {
-		return message;
+		return description;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessage(String description) {
+		this.description = description;
+	}
+
+	public HttpStatus getHttpCode() {
+		return httpCode;
+	}
+
+	public void setHttpCode(HttpStatus httpCode) {
+		this.httpCode = httpCode;
+	}
+
+	public Date getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timestamp = timestamp;
 	}
 
 	public String getSeverity() {
@@ -40,11 +53,9 @@ public class ApplicationError {
 		this.severity = severity;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "ApplicationError [code=" + code + ", message=" + message + ", severity=" + severity + "]";
+		return "ApplicationError [httpCode=" + httpCode + ", description=" + description + ", severity=" + severity + "]";
 	}
 }
 
