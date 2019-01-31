@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -85,6 +86,24 @@ public class MainController
 		List<User> users = userService.findAll();
 		return users;
 
+	}
+	
+	@RequestMapping(path="/api/loginUser") 
+	public HashMap<String, String> loginUser(@RequestBody String login) {
+
+		String jsessionid = RequestContextHolder.currentRequestAttributes().getSessionId(); 
+		logger.info(jsessionid + "Inside login User");
+		HashMap<String, String> map = new HashMap<String, String>();
+		try {
+			
+			map = userService.login(login);
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			map.put("error", "error");
+		}
+		
+		return map;
 	}
 
 

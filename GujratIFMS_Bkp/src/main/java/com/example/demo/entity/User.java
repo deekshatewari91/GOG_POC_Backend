@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,9 +42,11 @@ public class User {
 	
 	private String designation;
 	
+	private LocalDate dob;
+	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="address_aid")
-	private Address address;
+	private AddressJson address;
 
 	public String getFirstname() {
 		return firstname;
@@ -108,11 +112,11 @@ public class User {
 		this.designation = designation;
 	}
 
-	public Address getAddress() {
+	public AddressJson getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(AddressJson address) {
 		this.address = address;
 	}
 
@@ -123,6 +127,14 @@ public class User {
 	  ", age=" + age + ", status=" + status + ", gender=" + gender +
 	  ", designation=" + designation + ", address=" + address.toString() + "]"; 
 		  }
+
+	public LocalDate getDob() {
+		return dob;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
 
 	
 }
