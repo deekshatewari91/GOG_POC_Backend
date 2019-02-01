@@ -20,6 +20,7 @@ import com.example.demo.controller.MainController;
 import ch.qos.logback.classic.Logger;
 
 
+
 @SpringBootApplication
 @EnableCaching
 @EnableAuthorizationServer
